@@ -25,7 +25,6 @@ async def handler(event):
                 if text:
                     await bot.send_message(TARGET_CHAT_ID, text)
                 return
-
             lower = file_path.lower()
             with open(file_path, "rb") as f:
                 if lower.endswith((".jpg", ".jpeg", ".png", ".webp")):
@@ -41,13 +40,13 @@ async def handler(event):
             await bot.send_message(TARGET_CHAT_ID, text)
 
     except Exception as e:
-        print(f"Ошибка при обработке сообщения: {e}")
+        print(f"Error processing message: {e}")
 
 
 async def main():
     check_config()
     await telethon_client.start()
-    print(f"Парсер запущен. Слушаю канал: {SOURCE_CHANNEL}")
+    print(f"Parsing start, chek chanel: {SOURCE_CHANNEL}")
     await telethon_client.run_until_disconnected()
 
 
