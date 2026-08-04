@@ -57,12 +57,13 @@ async def info_callback(callback: types.CallbackQuery):
 @router.callback_query(lambda c: c.data == "show_balance")
 async def balance_callback(callback: types.CallbackQuery):
     text = (
-        "💰 <b>Общий баланс:</b> 0 у.е.\n\n"
-        "💰 <b>Баланс биржи BIBYT:</b> 0 у.е.\n"
-        "💰 <b>Баланс биржи BITGET:</b> 0 у.е.\n"
-        "💰 <b>Баланс биржи OURBIT:</b> 0 у.е.\n"
-        "💰 <b>Баланс биржи MEXC:</b> 0 у.е.\n"
-        "💰 <b>Баланс биржи GATE:</b> 0 у.е."
+        "💰 <b>Общий баланс:</b> 0 $\n\n"
+        "💰 <b>Баланс биржи BIBYT:</b> 0 $\n"
+        "💰 <b>Баланс биржи BITGET:</b> 0 $\n"
+        "💰 <b>Баланс биржи Binance:</b> 0 $\n"
+        "💰 <b>Баланс биржи OURBIT:</b> 0 $\n"
+        "💰 <b>Баланс биржи MEXC:</b> 0 $\n"
+        "💰 <b>Баланс биржи GATE:</b> 0 $"
     )
     await callback.message.answer(text, parse_mode="HTML")
     await callback.answer()
