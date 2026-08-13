@@ -5,7 +5,7 @@ from aiogram import Bot, Dispatcher
 
 from config import BOT_TOKEN, check_config
 from bot.handlers import start, balance, info
-# from parser.channel_parser import main as run_parser
+from parser.channel_parser import main as run_parser
 
 logging.basicConfig(level=logging.INFO)
 
@@ -25,7 +25,7 @@ async def main():
     check_config()
     await asyncio.gather(
         run_bot(),
-        # run_parser(),
+        run_parser(),
     )
 
 

@@ -56,14 +56,10 @@ async def info_callback(callback: types.CallbackQuery):
 
 @router.callback_query(lambda c: c.data == "show_balance")
 async def balance_callback(callback: types.CallbackQuery):
-    text = (
-        "💰 <b>Общий баланс:</b> 0 $\n\n"
-        "💰 <b>Баланс биржи BIBYT:</b> 0 $\n"
-        "💰 <b>Баланс биржи BITGET:</b> 0 $\n"
-        "💰 <b>Баланс биржи Binance:</b> 0 $\n"
-        "💰 <b>Баланс биржи OURBIT:</b> 0 $\n"
-        "💰 <b>Баланс биржи MEXC:</b> 0 $\n"
-        "💰 <b>Баланс биржи GATE:</b> 0 $"
+    from bot.handlers.balance import build_exchanges_keyboard
+    await callback.message.answer(
+        "💰 <b>Выбери биржу</b>",
+        reply_markup=build_exchanges_keyboard(),
+        parse_mode="HTML",
     )
-    await callback.message.answer(text, parse_mode="HTML")
     await callback.answer()
